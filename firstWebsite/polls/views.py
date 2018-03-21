@@ -7,9 +7,6 @@ from django.template import loader
 
 def index(request):
 	lastest_question_list = Question.objects.order_by('pub_date')[:5]
-	question_names = []
-	for q in lastest_question_list:
-		question_names.append(q.question_text)
 	template = loader.get_template('polls/index.html')
 	context = {
 		'lastest_question_list': lastest_question_list
